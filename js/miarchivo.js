@@ -28,7 +28,7 @@ let total = 0; ///vamos a mostrar el total de la suma de cada item por su cantid
 let opcion; /// 'si' 'no'
 let ticket = ``;
 
-alert('Bienvenido a su tienda Online!!');
+alert('Bienvenido a su tienda Online!!, si su compra es mayor a $2000 se le aplicara un 30% de descuento');
 nombreUser = prompt("Ingrese su nombre!");
 
 
@@ -47,13 +47,15 @@ do {
     while (cantidad <= 0) { ///mientras la cantidad sea menor o igual a 0, le pedimos que la vuelva a ingresar
         cantidad = parseInt(prompt('Cantidad invalida, ingrese otra'));
     } 
-    ticket = ticket + `Nombre del producto: ${nombreItem} \n Precio unitario: $${precioItem} \n Cantidad: ${cantidad} \n Subtotal: $${cantidad * precioItem} \n\n`
-    total = total + cantidad * precioItem;
+    ticket = ticket + `Nombre del producto: ${nombreItem} \n Precio unitario: $${precioItem} \n Cantidad: ${cantidad} \n Subtotal: $${cantidad * precioItem } \n\n`
+total = total + cantidad * precioItem
 
     opcion = prompt("Desea comprar otro producto?"); ///le pregunto si desea ingresar otro item, asi vuelvo a iterar o terminar el bucle
-
+    
 } while (opcion == 'si');
+
+ if (total>2000)
+total=total-(precioItem*0.3);
 
 alert(`${ticket} El total para ${nombreUser} es de: $${total}`);
 //alert('El total para ' + nombreUser + ' es de ' + total);
-
